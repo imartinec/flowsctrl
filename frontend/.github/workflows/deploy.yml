@@ -1,0 +1,19 @@
+name: Deploy to labeverest
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, flowsctrl]
+    steps:
+      - name: Deploy
+        shell: bash
+        run: |
+          set -e
+          cd /home/imartinc/apps/flowsctrl
+          git fetch --all
+          git reset --hard origin/master
+          cd infra
+          docker compose up -d
