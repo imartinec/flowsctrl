@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Node (por si más adelante usas)
+node_modules/
+dist/
+build/
+
+# Secrets (por seguridad)
+.env
+.env.*

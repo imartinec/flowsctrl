@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlowCtrl</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <h1>FlowCtrl</h1>
+    <p>Infraestructura, software y control sin fricción.</p>
+    <a href="#contacto" class="btn">Hablemos</a>
+  </header>
+
+  <section class="features">
+    <div>
+      <h2>Ingeniería</h2>
+      <p>Soluciones pensadas para durar, no para parchear.</p>
+    </div>
+    <div>
+      <h2>Automatización</h2>
+      <p>Menos clics, más flujo. Sistemas que trabajan solos.</p>
+    </div>
+    <div>
+      <h2>Escalabilidad</h2>
+      <p>De servidor casero a producción sin reescribir todo.</p>
+    </div>
+  </section>
+
+<section id="contacto" class="contact">
+  <h2>Contacto</h2>
+
+  <form id="contactForm">
+    <input name="name" placeholder="Nombre" required />
+    <input name="email" type="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Mensaje" required></textarea>
+
+    <button class="btn" type="submit">Enviar</button>
+    <p id="status"></p>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "Enviando...";
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const out = await res.json();
+
+      if (res.ok && out.ok) {
+        statusEl.textContent = "Mensaje enviado ✅";
+        form.reset();
+      } else {
+        statusEl.textContent = "Error enviando 😅";
+        console.error(out);
+      }
+    } catch (err) {
+      statusEl.textContent = "Error de red 😬";
+      console.error(err);
+    }
+  });
+</script>
+	  	
+  	
+
+  <footer>
+    © 2026 FlowCtrl · Built with Docker & Cloudflare
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_web
+    volumes:
+      - ../frontend:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    user: "0:0"
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - /home/imartinc/.cloudflared:/etc/cloudflared:ro
+    depends_on:
+      - nginx
+    restart: unless-stopped
