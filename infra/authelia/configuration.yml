@@ -28,7 +28,7 @@ access_control:
 
 session:
   name: authelia_session
-  secret: "CAMBIA_ESTO_POR_UN_SECRETO_LARGO"
+  secret: "ae699e77a8bb1bc7b50cccb715d047013db46466ede67f2277e502242f40b4c5"
   cookies:
     - domain: "flowsctrl.com"
       authelia_url: "https://flowsctrl.com"
@@ -37,7 +37,7 @@ session:
     port: 6379
 
 storage:
-  encryption_key: "CAMBIA_ESTO_POR_OTRO_SECRETO_LARGO"
+  encryption_key: "48af27386359ace16932da0f1813e79fc6b8eda70aa0728c0abbe7342dec12e8"
   local:
     path: /config/db.sqlite3
 
