@@ -1,0 +1,5 @@
+users:
+  ignacio:
+    displayname: "Ignacio"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$REEMPLAZA$ESTO"
+    email: "tuemail@dominio.cl"

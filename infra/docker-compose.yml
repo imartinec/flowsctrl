@@ -1,18 +1,36 @@
 services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+
+  authelia:
+    image: authelia/authelia:latest
+    restart: unless-stopped
+    volumes:
+      - ./authelia:/config
+    environment:
+      - TZ=America/Santiago
+    depends_on:
+      - redis
+
   nginx:
     image: nginx:alpine
-    container_name: nginx_web
-    volumes:
-      - ../frontend:/usr/share/nginx/html:ro
     restart: unless-stopped
-
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: cloudflared
-    user: "0:0"
-    command: tunnel --config /etc/cloudflared/config.yml run
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
-      - /home/imartinc/.cloudflared:/etc/cloudflared:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/snippets:/etc/nginx/snippets:ro
+      - ./certbot/www:/var/www/certbot:ro 
+      - ./certbot/conf:/etc/letsencrypt:ro
     depends_on:
-      - nginx
+      - authelia
+
+  certbot:
+    image: certbot/certbot:latest
     restart: unless-stopped
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
