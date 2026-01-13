@@ -17,14 +17,20 @@ access_control:
   default_policy: deny
   rules:
     - domain: "flowsctrl.com"
+      policy: bypass
+      resources:
+        - "^/api/auth/.*$"
+    - domain: "flowsctrl.com"
       policy: one_factor
       resources:
         - "^/$"
-        - "^/dashboard/?$"
     - domain: "flowsctrl.com"
       policy: two_factor
       resources:
         - "^/apps/.*$"
+
+
+
 
 session:
   name: authelia_session
