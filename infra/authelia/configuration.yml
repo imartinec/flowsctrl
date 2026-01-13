@@ -16,12 +16,12 @@ authentication_backend:
 access_control:
   default_policy: deny
   rules:
-    - domain: "tudominio.cl"
+    - domain: "flowsctrl.com"
       policy: one_factor
       resources:
         - "^/$"
         - "^/dashboard/?$"
-    - domain: "tudominio.cl"
+    - domain: "flowsctrl.com"
       policy: two_factor
       resources:
         - "^/apps/.*$"
@@ -30,8 +30,8 @@ session:
   name: authelia_session
   secret: "CAMBIA_ESTO_POR_UN_SECRETO_LARGO"
   cookies:
-    - domain: "tudominio.cl"
-      authelia_url: "https://tudominio.cl"
+    - domain: "flowsctrl.com"
+      authelia_url: "https://flowsctrl.com"
   redis:
     host: redis
     port: 6379

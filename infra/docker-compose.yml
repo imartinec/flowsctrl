@@ -23,8 +23,9 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./nginx/snippets:/etc/nginx/snippets:ro
-      - ./certbot/www:/var/www/certbot:ro 
-      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/letsencrypt:ro      
     depends_on:
       - authelia
 
