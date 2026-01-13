@@ -44,3 +44,7 @@ storage:
 notifier:
   filesystem:
     filename: /config/notification.txt
+
+identity_validation:
+  reset_password:
+    disable: true
