@@ -2,7 +2,7 @@ users:
   ignacio:
     displayname: "Ignacio"
     # Pega aquí el hash completo que generaste en el paso anterior
-    password: "ae699e77a8bb1bc7b50cccb715d047013db46466ede67f2277e502242f40b4c5" 
+    password: "2WMPN26W6rr.," 
     email: "ignacio@flowsctrl.com"
     groups:
       - admins
