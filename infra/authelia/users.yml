@@ -1,14 +1,8 @@
 users:
   ignacio:
     displayname: "Ignacio"
-    # Pega aquí el hash completo que generaste en el paso anterior
-    password: "2WMPN26W6rr.," 
+    password: "$argon2id$v=19$m=65536,t=3,p=4$6VndSclNxeER3M2Z6S0J6Qg$4t3EwLq+mR6/m+A+C6G7P9V5E4p1fG5H2J3K4L5M6N7"
     email: "ignacio@flowsctrl.com"
     groups:
       - admins
       - users
-
-
-
-
-      
