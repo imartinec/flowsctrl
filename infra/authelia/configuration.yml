@@ -51,6 +51,7 @@ notifier:
 
 identity_validation:
   reset_password:
+    # Desactivamos el restablecimiento para que no pida configurar un servidor de correo (SMTP)
     disable: true
-    # AÑADE ESTA LÍNEA (Es obligatoria por seguridad interna de Authelia)
-    jwt_secret: "a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z"
+# Esta línea es obligatoria por seguridad interna de Authelia
+jwt_secret: "a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z"
