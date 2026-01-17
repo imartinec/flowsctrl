@@ -1,5 +1,14 @@
 users:
   ignacio:
     displayname: "Ignacio"
-    password: "$argon2id$v=19$m=65536,t=3,p=4$REEMPLAZA$ESTO"
-    email: "tuemail@dominio.cl"
+    # Pega aquí el hash completo que generaste en el paso anterior
+    password: "ae699e77a8bb1bc7b50cccb715d047013db46466ede67f2277e502242f40b4c5" 
+    email: "ignacio@flowsctrl.com"
+    groups:
+      - admins
+      - users
+
+
+
+
+      

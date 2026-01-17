@@ -29,17 +29,15 @@ access_control:
       resources:
         - "^/apps/.*$"
 
-
-
-
 session:
   name: authelia_session
+  # Este es el secreto de la sesión (ya lo tenías)
   secret: "ae699e77a8bb1bc7b50cccb715d047013db46466ede67f2277e502242f40b4c5"
   cookies:
     - domain: "flowsctrl.com"
       authelia_url: "https://flowsctrl.com"
   redis:
-    host: redis
+    host: infra-redis-1  # Ajustado al nombre de tu contenedor
     port: 6379
 
 storage:
@@ -54,3 +52,5 @@ notifier:
 identity_validation:
   reset_password:
     disable: true
+    # AÑADE ESTA LÍNEA (Es obligatoria por seguridad interna de Authelia)
+    jwt_secret: "a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z"
