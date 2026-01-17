@@ -37,7 +37,7 @@ session:
     - domain: "flowsctrl.com"
       authelia_url: "https://flowsctrl.com"
   redis:
-    host: infra-redis-1  # Ajustado al nombre de tu contenedor
+    host: infra-redis-1 # Ajustado al nombre de tu contenedor
     port: 6379
 
 storage:
